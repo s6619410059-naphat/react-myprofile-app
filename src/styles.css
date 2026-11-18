@@ -1,0 +1,520 @@
+/*
+  สเกลทั้งหน้าตามความกว้างจอ ให้เหมือนเฟรม Mockup เสมอ
+  1rem = 10px ของเฟรมอ้างอิงกว้าง 611px  →  html font-size = 100vw / 61.1
+*/
+:root {
+  --bg: #171717;
+  --panel: #1a1a1a;
+  --card: #1c1c1c;
+  --line: #3a3a3a;
+  --text: #ffffff;
+  --muted: #7c7c7c;
+  --accent: #ff5a00;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100vw / 61.1);
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Public Sans", system-ui, sans-serif;
+  background: var(--panel);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0 0 1.2rem;
+  max-width: 36rem;
+}
+
+/* ---------- Stage / Frame (เต็มจอ) ---------- */
+.stage {
+  min-height: 100vh;
+  display: flex;
+}
+
+.frame {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--panel);
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 2rem 1.2rem 2rem 2.2rem;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------- MyCard ---------- */
+.mycard {
+  width: 16rem;
+  flex: none;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  padding: 1.3rem 1.4rem 1.4rem;
+}
+
+.mycard__brand {
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin-bottom: 0.9rem;
+}
+
+.mycard__brand span {
+  color: var(--accent);
+}
+
+.mycard__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 0.9rem;
+  display: block;
+  background: #f4f4f4;
+}
+
+.mycard__id {
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.7rem;
+  letter-spacing: 0.04rem;
+}
+
+.mycard__role {
+  font-size: 0.65rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+.mycard__socials {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.2rem 0.2rem 1.3rem;
+  font-size: 1.6rem;
+}
+
+.mycard__socials a:hover {
+  color: var(--accent);
+}
+
+.btn {
+  display: block;
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  font: 500 0.95rem "Public Sans", sans-serif;
+  letter-spacing: 0.12rem;
+  cursor: pointer;
+  text-align: center;
+  transition: filter 0.15s;
+}
+
+.btn:hover {
+  filter: brightness(1.12);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* ---------- SideMenu ---------- */
+.sidemenu {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.9rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 1.4rem;
+}
+
+.sidemenu__item {
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.7rem;
+  color: #8a8a8a;
+  font-size: 1.3rem;
+  transition: color 0.15s, background 0.15s;
+}
+
+.sidemenu__item:hover {
+  color: #fff;
+  background: #2a2a2a;
+}
+
+.sidemenu__item.is-active {
+  color: var(--accent);
+  background: rgba(255, 90, 0, 0.14);
+}
+
+/* ---------- Typography ---------- */
+.eyebrow {
+  font-size: 1.7rem;
+  font-weight: 300;
+  letter-spacing: 0.03rem;
+  margin: 0 0 1.4rem;
+}
+
+.headline {
+  font-size: 1.9rem;
+  line-height: 1.3;
+  font-weight: 700;
+  margin: 0 0 1.4rem;
+  max-width: 36rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 1.6rem;
+}
+
+/* ---------- Home stats ---------- */
+.stats {
+  display: flex;
+  gap: 2.4rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat strong {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.stat small {
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.4;
+}
+
+/* ---------- Education & Experience ---------- */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.timeline li {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.timeline__period {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.timeline h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.timeline .muted {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* ---------- Specializations ---------- */
+.speclist {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 38rem;
+}
+
+.speccard {
+  position: relative;
+  border: 1px solid #4a2a18;
+  border-radius: 0.6rem;
+  padding: 1.4rem 4rem 1.3rem 1.6rem;
+}
+
+.speccard:hover {
+  border-color: var(--accent);
+}
+
+.speccard h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.speccard .muted {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.speccard__arrow {
+  position: absolute;
+  top: 1.3rem;
+  right: 1.4rem;
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+/* ---------- Projects ---------- */
+.project__name {
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.project__shot {
+  margin-top: 1.2rem;
+  max-width: 38rem;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.project__shot img {
+  display: block;
+  width: 100%;
+}
+
+.dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  max-width: 38rem;
+  margin-top: 0.9rem;
+}
+
+.dots button {
+  width: 0.6rem;
+  height: 0.6rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #555;
+  cursor: pointer;
+}
+
+.dots button.is-active {
+  background: #3b82f6;
+}
+
+/* ---------- Skills ---------- */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 8rem);
+  gap: 2rem 3rem;
+  margin-top: 0.8rem;
+}
+
+.skill {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+}
+
+.skill__pill {
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid var(--line);
+  border-radius: 4rem;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.4rem;
+  font-size: 2.8rem;
+  transition: border-color 0.15s;
+}
+
+.skill__pill:hover {
+  border-color: var(--accent);
+}
+
+.skill__pill span {
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.skill small {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Contact ---------- */
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem 2.4rem;
+  max-width: 40rem;
+  margin-top: 1rem;
+}
+
+.form label {
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.form input:not([type="checkbox"]) {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--accent);
+  color: #fff;
+  padding: 0.4rem 0;
+  font: 400 1rem "Public Sans", sans-serif;
+  outline: none;
+}
+
+.form__full {
+  grid-column: 1 / -1;
+}
+
+.form__check {
+  display: flex !important;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--muted) !important;
+}
+
+.form__ok {
+  color: #4ade80;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ---------- มือถือ / จอแคบ: กลับไปใช้ขนาดปกติ ---------- */
+@media (max-width: 860px) {
+  html {
+    font-size: 16px;
+  }
+
+  .frame {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem 1.2rem;
+    gap: 1.5rem;
+  }
+
+  .mycard {
+    width: 100%;
+    max-width: 17rem;
+    margin: 0 auto;
+  }
+
+  .sidemenu {
+    flex-direction: row;
+    justify-content: center;
+    order: -1;
+    align-self: center;
+    padding: 0.45rem 0.9rem;
+  }
+
+  .eyebrow,
+  .headline,
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .muted,
+  .mycard__id {
+    font-size: 0.9rem;
+  }
+
+  .mycard__role {
+    font-size: 0.75rem;
+  }
+
+  .mycard__brand {
+    font-size: 1.1rem;
+  }
+
+  .mycard__socials {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+  }
+
+  .stat strong {
+    font-size: 2.2rem;
+  }
+
+  .stat small {
+    font-size: 0.7rem;
+  }
+
+  .timeline h3,
+  .speccard h3,
+  .project__name {
+    font-size: 1.05rem;
+  }
+
+  .timeline__period,
+  .timeline .muted,
+  .speccard .muted,
+  .skill small,
+  .skill__pill span,
+  .form label {
+    font-size: 0.8rem;
+  }
+
+  .skills {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .skill__pill {
+    width: 100%;
+    max-width: 5.5rem;
+    height: 5.5rem;
+    font-size: 1.8rem;
+    border-radius: 2.75rem;
+  }
+
+  .sidemenu__item {
+    font-size: 1.1rem;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+}
